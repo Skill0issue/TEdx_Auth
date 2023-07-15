@@ -168,6 +168,7 @@
 .Svg_Section{
   text-decoration: none;
   display:flex;
+  flex-wrap: wrap;
   justify-content:space-evenly;
   align-items: center;
   width:500px;
@@ -501,7 +502,7 @@ text-align: center;
   }
 }
 @media screen and (max-width:652px){
-  
+
 }
 @media screen and (max-width:500px){
   #header{
