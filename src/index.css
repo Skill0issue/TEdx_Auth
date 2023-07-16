@@ -19,11 +19,12 @@
 *{
   border:0;
   margin: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
   z-index: 0;
   font-family:'Quicksand','Montserrat','Ubuntu','sans-serif';
   font-weight: 500;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 ::-webkit-scrollbar{
   display: none;
@@ -33,56 +34,110 @@
   width: 100%;
   height: 100vh;
   background:rgb(0,0,0,0.6);
-  color:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
   background-blend-mode:hue;
-}
-.nav-dark{
-  background-color: rgb(0,0,0,0.6);
-  margin:0;
-  border:0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .navbar{
-  display:flex;
-  justify-content: space-between;
   align-items:center;
-  margin-left:3rem;
-  margin-right:3rem;
-  margin-top: 1rem;
+  width:100%;
+  height:80px;
+  background:rgb(0,0,0);
 }
 .navbar .Logo{
-  font-size:2.5em;
+  font-size:35px;
+  line-height: 80px;
   text-transform:capitalize;
   font-weight: bold;
+  padding:0 100px;
+  color:white;
 }
-.navbar .links{
-  display:flex;
-  list-style-type: none;
+.navbar ul{
+  float:right;
+  margin-right:20px;
 }
-.navbar .links li a{
-  line-height:40px;
+.navbar ul li{
+  display: inline-block;
+  line-height:80px;
+  margin:0 5px;
+}
+.navbar ul li a{
   padding:12px 20px;
-  text-decoration:none;
   font-family:'Montserrat','sans-serif';
   margin-right:0.5rem;
   font-size:20px;
   color:white;
 }
-.navbar .links li a:hover{
+.navbar ul li a.active, li a:hover{
   background:rgb(0,0,0,0.9);
   color:#f9dc3a;
   border-radius:10px;
 }
+.checkbtn{
+  background-color: transparent;
+  color:white;
+  cursor: pointer;
+  font-size:30px;
+  float:right;
+  line-height:80px;
+  margin-right:40px;
+  display:none;
+}
+#check{
+  display:none;
+}
+
+@media screen and (max-width: 952px){
+
+  .navbar .Logo{
+    font-size:30px;
+    padding-left:50px;
+  }
+  .navbar ul li a{
+    font-size:16px;
+  }
+}
+@media screen and (max-width:858px){
+  .checkbtn{
+    display:block;
+  } 
+  .navbar ul{
+    position: absolute;
+    width:100%;
+    background:rgb(0,0,0);
+    top:80px;
+    z-index:1000;
+    text-align: center;
+    transition: all 1s ease;
+  }
+  .navbar ul li{
+    display: block;
+    margin:50px 0;
+    line-height: 30px;
+  }
+  .navbar ul li a{
+    font-size:20px;
+  }
+  .navbar ul li a:hover, li a.active{
+    color:gold;
+    font-weight: bold;;
+  }
+  #check:checked ~ 
+  .navbar ul{
+      top:-100%;
+      height: auto;
+    }
+  }
+
+
+
 .headings{
-  display:flex;
-  flex-direction:column;
   margin-left:3rem;
-  transform: translateY(-40%);
 }
 .headings a{
   font-size:13em;
@@ -90,9 +145,9 @@
   line-height:120%;
   font-weight:800;
   text-transform: uppercase;
-  text-decoration:none;
   position:relative;
   color: #fff;
+
 }
 .headings a::after{
   content:'';
@@ -102,10 +157,16 @@
   width:0;
   left:0;
   bottom:0;
+  z-index: -1;
   transition:ease 0.5s;
 }
 .headings a:hover:after{
   width:100%;
+}
+.headings a:hover{
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: white;
 }
 #header {
   transition: all 1s ease;
@@ -117,6 +178,91 @@
 
 .headings div:hover {
   opacity: 0.7;
+}
+@media (max-width:1752px){
+  .headings {
+    margin-bottom:80px;
+  }
+  .headings a{
+    font-size:9em;
+  }
+}
+@media (max-width: 1352px){
+  .headings {
+    margin-bottom:40px;
+  }
+  .headings a{
+  font-size: 8em;
+  }
+}
+@media (max-width: 1220px){
+  #header{
+    height:80vh;
+  }
+  .headings {
+    margin-bottom:40px;
+  }
+  .headings a{
+    font-size: 6em;
+    }
+}
+@media(max-width:952px){
+  #header{
+    height:90vh;
+  }
+  .headings {
+    margin-bottom:40px;
+  }
+  .headings a{
+    font-size: 4em;
+    }
+    .PopularHeading{
+      font-size:20px;
+    }
+}
+@media (max-width:648px){
+  #header{
+    height:80vh;
+  }
+  .headings {
+    margin-bottom:40px;
+  }
+  .headings a{
+    font-size:3.5em; 
+  }
+}
+@media (max-width:572px){
+  .headings {
+    margin-bottom:40px;
+  }
+  .headings a{
+    font-size:36px; 
+  }
+  #header{
+    height:70vh;
+  }
+}
+@media (max-width:450px){
+  .headings .Logo{
+    margin:0 0 0 10px;
+  }
+  .headings a{
+    font-size:2em;
+  }
+
+}
+@media (max-width:350px){
+  .headings a{
+    font-size:1.3em;
+  }
+
+}
+
+@media screen and (width:375px){
+  #header{
+    height:100vh;
+  }
+
 }
 /* Popular section */
 
@@ -139,7 +285,7 @@
   text-decoration: none;
   color:rgb(255,255,255);
   box-shadow: 0 70px 63px -60px #000000;
-  border-radius: 20px;
+  ;
 }
 .About1,.About2{
   display: none;
@@ -162,7 +308,45 @@
   height: 800px;
   background: center center no-repeat;
   position:relative;
+  border-radius: 20px
 }
+
+@media (max-width:1220px){
+  .Bg1, .Bg2{
+    width:400px;
+    border-radius:20%;
+    height:400px;
+  }
+  .Popular1,.Popular2{
+    border-radius:20%;
+    box-shadow: 0 0 6px rgb(0,0,0,0.6);
+  }
+}
+@media (max-width:952px){
+  .Popular-box{
+    flex-direction: column;
+    height:auto;
+  }
+  .Popular1,.Popular2{
+  margin:20px auto;
+  }
+
+}
+@media (max-width:800px){
+  .PopularHeading{
+    display: none;
+  }
+  .Popular-box{
+    display: none;
+  }
+  .Sign_In_button{
+    margin: 30 auto;
+  }
+}
+
+
+
+
 
 /* section Sign_in_button */
 .Svg_Section{
@@ -232,10 +416,25 @@
  }
 
 
+
+
+ @media (max-width: 548px){
+  .pointers{
+    display:none;
+  }
+  .Svg_Section{
+    width:50%;
+  }
+  .Sign_In_button p{
+    font-size: 1em;
+  }
+ }
+
  /* Footer  */
  #Footer{
   position:static;
   bottom:0;
+  width:100%;
  }
  .FooterList h1{
   Font-weight:700;
@@ -266,9 +465,29 @@
   background-color: rgb(0,0,0,0.3);
  }
 
-
+@media (max-width:700px){
+  .FooterLinks{
+    flex-direction: column;
+    align-items: flex-start;
+    margin:5px 0;
+  }
+}
+@media (max-width:500px){
+  .CopyRights{
+    font-size:small;
+  }
+  .FooterList h1{
+    font-size: medium;
+    font-weight:bold;
+  }
+  .FooterLinks li a{
+    font-size: smaller;
+  }
+}
  /* sign in page */
-
+.SignIn{
+  height:82vh;
+}
  .Edit-profile{
   padding-top:100px;
   height:645px;
@@ -382,7 +601,9 @@ background-position: 12px 11px;
 text-align: center;
 }
 /* profile page */
-
+.return-profile{
+  height:82vh;
+}
 .Profile{
   padding-top:100px;
   text-align: center;
@@ -451,86 +672,6 @@ text-align: center;
 /* media Queries */
 
 /* Media queries */
-@media screen and (min-width:2000px){
-  .headings a:hover{
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-color: #fff;
-    -webkit-text-stroke-width: 8px;
-  } 
-}
-@media screen and (max-width:2000px){
-  .headings a{
-    font-size:8em;
-  }
-  .headings a::after{
-    height:3px;
-  }
-}
-@media screen and (max-width:1300px) {
-  #header{
-    box-shadow: 5 5 5 5  black;
-    background-blend-mode: overlay;
-  }
-  .headings{
-    transform:translateY(-100%);
-  }
-  .headings a{
-    font-size:4em;
-  }
-  .headings a::after{
-    height:3px;
-  }
-  
-}
-@media screen and (max-width:952px) {
-  #header{
-    box-shadow: 5 5 5 5  black;
-    background-blend-mode: overlay;
-  }
-  .headings{
-    transform:translateY(-200%);
-  }
-  .headings a{
-    font-size:3em;
-  }
-  .headings a::after{
-    height:3px;
-  }
-  .navbar .Logo{
-    font-size:2em;
-    padding:12px;
-  }
-}
-@media screen and (max-width:652px){
-
-}
-@media screen and (max-width:500px){
-  #header{
-    box-shadow: 5 5 5 5  black;
-    background-blend-mode: overlay;
-  }
-  .headings{
-    transform:translateY(-200%);
-  }
-  .headings a{
-    font-size:2em;
-  }
-  .navbar .Logo{
-    font-size:1em;
-    padding:12px;
-  }
-  .navbar .links{
-    display:none;
-  }
-  /* .bars{
-    display:flex;
-  } */
-}
-
-
-
-
-
 
 @media (400px <= width<= 952px){
   .Not-signedin-profile h1{

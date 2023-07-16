@@ -7,6 +7,7 @@ import Footer from './pages/Footer';
 import BlogList from './pages/BlogList';
 import Popular from './pages/Popular'
 import SignIn from './pages/SignIn';
+import Navbar from './pages/Navbar';
 
 
 function App() {
@@ -15,10 +16,10 @@ function App() {
     <div className="App">
     <Routes>
       <Route path="/" element={<><Header /><Popular/></>}/>
-      <Route path="/Blog" element={<BlogList />} />
-      <Route path="/Profile" element={<Profile />} />
-      <Route path="/Blog/:id" element={<Blog />} />
-      <Route path="/SignIn" element={<SignIn/>} />
+      <Route path="/Blog" element={<><Navbar/><BlogList /></>} />
+      <Route path="/Profile" element={<><Navbar/><Profile /></>} />
+      <Route path="/Blog/:id" element={<><Navbar/><Blog /></>} />
+      <Route path="/SignIn" element={<><Navbar/><SignIn/></>} />
       </Routes>
     <Footer/>
     </div>

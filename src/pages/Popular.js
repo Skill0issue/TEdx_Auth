@@ -17,7 +17,7 @@ import Popular2 from "../Images/popular-2.jpg";
     <div className="Popular-stuff">
     <h1 className="PopularHeading">Most Popular Blogs To Date</h1>
       <section className="Popular-box">
-        <Link to="/Blog/1" className="Popular1" onMouseEnter={()=>  HoverDisplay('.About1')} onMouseLeave={()=> NoHoverDisplay('.About1')}>
+        <Link to="/Blog/1" className="Popular1" onMouseEnter={()=>  HoverDisplay('.About1')} onMouseLeave={()=> NoHoverDisplay('.About1')} >
           <div className="Bg1" style={{backgroundImage:`url(${Popular1})`}}>
             <span className="About1">
               <h1 id="About1" >Popular-1</h1>
@@ -30,7 +30,7 @@ import Popular2 from "../Images/popular-2.jpg";
             </span>
           </div>
         </Link>
-        <Link to="/Blog/2" className="Popular2" onMouseEnter={()=> HoverDisplay('.About2')} onMouseLeave={()=> NoHoverDisplay('.About2')}>
+        <Link to="/Blog/2" className="Popular2" onMouseEnter={()=> HoverDisplay('.About2')} onMouseLeave={()=> NoHoverDisplay('.About2')} >
           <div className="Bg2" style={{backgroundImage:`url(${Popular2})`}}>
             <span className="About2">
             <h1 id="About2" >Popular-2</h1>
@@ -46,8 +46,8 @@ import Popular2 from "../Images/popular-2.jpg";
       </section>
       <section className="Sign_In_button">
         <Link to="/SignIn" className="Svg_Section">
-          <svg
-            width="120"
+          <svg className="pointers"           
+           width="120"
             height="100"
             viewBox="0 0 120 100"
             fill="none"
@@ -81,7 +81,7 @@ import Popular2 from "../Images/popular-2.jpg";
             </defs>
           </svg>
           <p>Sign In</p>
-          <svg
+          <svg className="pointers" 
             width="120"
             height="100"
             viewBox="0 0 120 100"

@@ -4,7 +4,7 @@ import Background from "../Images/Background.jpg";
 import Technology from "../Images/technology.jpg";
 import Design from "../Images/Design.jpg";
 import Entertainment from "../Images/entertainment.jpg";
-import { HashLink } from "react-router-hash-link";
+import Navbar from "./Navbar";
 
 const Header = () => {
   const [backgroundImage, setBackgroundImage] = useState(Background);
@@ -17,25 +17,8 @@ const Header = () => {
     <div>
       <header
         id="header"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        <nav className="navbar">
-          <div className="Logo">Blog</div>
-          <ul className="links">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/Blog">Blogs</Link>
-            </li>
-            <li>
-              <Link to="/Profile">Profile</Link>
-            </li>
-            <li>
-              <HashLink to="#Footer"> Contact</HashLink>
-            </li>
-          </ul>
-        </nav>
+        style={{ backgroundImage: `url(${backgroundImage})` }} >
+        <Navbar/>
         <section className="headings">
           <div id="heading-1">
             <Link to="#" onMouseEnter={() => handleMouseEnter(Technology)}>

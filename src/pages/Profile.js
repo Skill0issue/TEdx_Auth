@@ -22,7 +22,7 @@ const Profile = () => {
               
 
     return ( 
-        <div className="retrun-profile">
+        <div className="return-profile">
         {Email?
         <div className="Profile">
             <h1>Profile Details </h1>
@@ -32,9 +32,6 @@ const Profile = () => {
             </div>
             <Link to="/SignIn">
             <button>Edit Profile</button>
-            </Link>
-            <Link to="/">
-                <button>Home</button>
             </Link>
             <Link to ="/">
                     <button onClick={LogOut}>LogOut</button>

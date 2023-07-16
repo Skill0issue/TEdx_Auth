@@ -52,7 +52,7 @@ const SignIn = () => {
                         <label> Name: </label>
                         <input type="textarea" id="name" value={Name} onChange={(e)=> {e.preventDefault();setName(e.target.value)}}/>
                         <label> Phone Number:  </label>
-                        <input type="tel" id="phonenumber" value={Tel} onChange={(e)=> {e.preventDefault();setTel(e.target.value)}}/>
+                        <input type="tel" id="phonenumber" value={Tel} onChange={(e)=> {e.preventDefault();setTel(e.target.value)}} required/>
                     </form>
                     <div className="buttons">
                     <Link to ="/Profile">
