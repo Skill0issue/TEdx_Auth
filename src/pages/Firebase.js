@@ -4,6 +4,11 @@ import {GoogleAuthProvider, getAuth} from 'firebase/auth';
 
 
 const firebaseConfig = {
+
+// error persits woth dot env file can't config webpack
+
+
+
 //   apiKey: process.env.REACT_APP_API_KEY,
 //   authDomain: process.env.REACT_AUTH_DOMAIN,
 //   projectId: process.env.REACT_APP_PROJECT_ID,
