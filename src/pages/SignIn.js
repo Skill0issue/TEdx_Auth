@@ -1,14 +1,36 @@
 import {auth,provider} from './Firebase.js';
 import React,{useState,useEffect}  from 'react';
 import { signInWithPopup } from 'firebase/auth';
- import { Link } from 'react-router-dom';
+ import {useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     // setting up variables for local storage
     const [Email,setEmail] = useState('');
     const [Name,setName]=useState('');
-    const [Tel,setTel]=useState('');
+    const [Tel,setTel]=useState(undefined);
     const [ProfilePic, setProfilePic] = useState('');
+    const Navigate= useNavigate();
+// non empty form
+function validateForm() {
+
+    var d = document.forms["Form"]["tel"].value;
+    if(d == null || d === "" || d === "null"){
+      alert("Please Fill In All Required Fields");
+      return false
+    }
+    else{
+        return true
+    }
+  }
+
+function NavigateProfile(){
+    const a = validateForm();
+    if (a){
+        Navigate("/Profile");
+    }
+    return false
+}
+
 
     //  google auth for sign up
 
@@ -22,7 +44,7 @@ const SignIn = () => {
             localStorage.setItem("Email",result.user.email)
             localStorage.setItem("Tel",Tel)
         }).catch((error)=> {
-            alert(error.name , error.message)
+            console.log(error);
         });
     }
     // load data after refresh
@@ -48,17 +70,15 @@ const SignIn = () => {
                     <h2>Edit Profile</h2>
                     <img src={ProfilePic} alt="profilepic.png" />
                 </div>
-                    <form className="Signin-body">
+                    <form className="Signin-body" name="Form" method="post" >
                         <label> Name: </label>
                         <input type="textarea" id="name" value={Name} onChange={(e)=> {e.preventDefault();setName(e.target.value)}}/>
                         <label> Phone Number:  </label>
-                        <input type="tel" id="phonenumber" value={Tel} onChange={(e)=> {e.preventDefault();setTel(e.target.value)}} required/>
+                        <input type="tel" id="phonenumber" value={Tel} onChange={(e)=> {e.preventDefault();setTel(e.target.value)}} name="tel" />
                     </form>
                     <div className="buttons">
-                    <Link to ="/Profile">
-                            <button onClick={() => {SumbitProfile(Name,Tel)}}
+                            <button onClick={() => {SumbitProfile(Name,Tel);NavigateProfile()}} type="submit"
                             > Save</button>
-                        </Link >
                     </div>
                 </div>
             :    <div className="google-sign-in">
